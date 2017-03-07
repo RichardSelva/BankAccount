@@ -19,8 +19,8 @@ public abstract class BankAccount
 	private double monthlyInterest;
 	private double monthlyInterestRate;
 	
-	//method: Default constructor
-	//purpose: Instantiate default values
+	//method: Default constructor named BankAccount
+	//purpose: Take in 2 double type arguments and assign those values to balance and rate variable.
 	public BankAccount(double initialBalance, double initialRate)
 	{
 		balance = initialBalance;
@@ -28,105 +28,105 @@ public abstract class BankAccount
 	}
 	
 	//method: setBalance
-	//purpose: pass along the value, newBalance, to balance variable.
+	//purpose: Take in type double argument and assign its value to balance.
 	public void setBalance(double newBalance)
 	{
 		balance = newBalance;
 	}
 	
 	//method: getBalance
-	//purpose: return the value of balance;
+	//purpose: return the value held in balance variable;
 	public double getBalance()
 	{
 		return balance;
 	}
 	
 	//method: setDeposit
-	//purpose: pass along the value, newDeposit, to deposit variable.
+	//purpose: Take in type double argument and assign its value to newDeposit.
 	public void setDeposit(double newDeposit)
 	{
 		deposit = newDeposit;
 	}
 	
 	//method: getBalance
-	//purpose: return the value of deposit;
+	//purpose: return the value held in deposit variable;
 	public double getDeposits()
 	{
 		return deposit;
 	}
 	
 	//method: setWithdraw
-	//purpose: pass along the value, newWithdraw, to withdrawl variable.
+	//purpose: Take in type double argument and assign its value to withdraw.
 	public void setWithdraw(double newWithdraw)
 	{
 		withdraw = newWithdraw;
 	}
 	
 	//method: getWithdrawl
-	//purpose: return the value of withdrawl;
+	//purpose: return the value held in withdraw variable.
 	public double getWithdraw()
 	{
 		return withdraw;
 	}
 	
 	//method: setRate
-	//purpose: pass along the value, newRate, to rate variable.
+	//purpose: Take in type double argument and assign its value to rate.
 	public void setRate(double newRate)
 	{
 		rate = newRate;
 	}
 	
 	//method: getBalance
-	//purpose: return the value of rate;
+	//purpose: return the value held in rate variable.
 	public double getRate()
 	{
 		return rate;
 	}
 	
 	//method: setCharges
-	//purpose: pass along the value, newCharges, to charges variable.
+	//purpose: take in type double argument and assign its value to monthlyCharges.
 	public void setCharges(double newCharges)
 	{
 		monthlyCharges = newCharges;
 	}
 	
 	//method: getCharges
-	//purpose: return the value of charges;
+	//purpose: return the value held by monthlyCharges variable.
 	public double getCharges()
 	{
 		return monthlyCharges;
 	}
 	
 	//method: setWithdraw
-	//purpose: pass along the value, newWithdraw, to withdraw variable.
+	//purpose: take in type double argument and assign its value to numWithdraw
 	public void setNumWithdraws(double newWithdraw)
 	{
 		numWithdraw = newWithdraw;
 	}
 	
 	//method: getWithdrawl
-	//purpose: return the value of withdraw;
+	//purpose: return the value held by numWithdraw variable
 	public double getNumWithdraws()
 	{
 		return numWithdraw;
 	}
 	
 	//method: setDeposits
-	//purpose: pass along the value, newDeposit, to deposit variable.
+	//purpose: take in type double argument and assign its value to numDeposit
 	public void setNumDeposits(double newDeposit)
 	{
 		numDeposit = newDeposit;
 	}
 	
 	//method: getDeposit
-	//purpose: return the value of deposit;
+	//purpose: return the value held by numDeposit
 	public double getNumDeposit()
 	{
 		return numDeposit;
 	}
 	
 	//method: deposit
-	//purpose: Take in the deposit amount and add it to the current balance.
+	//purpose: Take in type double argument and add its value to current balance
 	public void deposit(double newDeposit)
 	{
 		balance = (balance + newDeposit);
@@ -135,7 +135,7 @@ public abstract class BankAccount
 	}
 	
 	//method: withdrawl
-	//purpose: Subtract the withdraw amount from the current balance.
+	//purpose: Take in type double argument and subtract it from the current balance.
 	public void withdraw(double newWithdraw)
 	{
 		if(newWithdraw <= balance)
@@ -152,7 +152,7 @@ public abstract class BankAccount
 	}
 	
 	//method: calcInterest
-	//purpose: Perform the interest rate calculations and returns the balance with interest incurred.
+	//purpose: Take in type double argument and calculate the monthlyInterestRate, monthlyInterest and balance.
 	public void calcInterest(double newInterest)
 	{
 		monthlyInterestRate = (newInterest / 12);
@@ -161,16 +161,14 @@ public abstract class BankAccount
 	}
 	
 	//method: monthlyProcess
-	//purpose: Perform the monthlyProcess operations that returns the balance with the difference from charges and
-	//set the count for withdraw, deposits, and charges back to 0.
+	//purpose: assign new balance after subtracting monthlyCharges from the previous balance and calling the calcInterest method
+	//that takes in double type argument and assign the new balance based on the monthlyCharges passed in and reset variables to 0.
 	public void monthlyProcess()
 	{
 		balance = (balance - monthlyCharges);
 		calcInterest(monthlyCharges);
-		numWithdraw=0;
-		numDeposit=0;
+		numWithdraw = 0;
+		numDeposit = 0;
 		monthlyCharges = 0;
 	}
-	
-	
 }
